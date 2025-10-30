@@ -7,18 +7,28 @@ describe("Sample test", ()=>{
     })
 })
 
-describe("Lucky roll", ()=>{
-    it("Should return 17", ()=>{
-        expect(analyzeDiceRolls([
-            [1, 2, 3, 5, 6]
-        ])).toBe(17)
+describe("One roll", ()=>{
+    describe("Lucky roll", ()=>{
+        it("Should return 17", ()=>{
+            expect(analyzeDiceRolls([
+                [1, 2, 3, 5, 6]
+            ])).toBe(17)
+        })
     })
-})
 
-describe("Brelan", () => {
-    it("Should return 28", () => {
-        expect(analyzeDiceRolls([
-            [4, 4, 4, 5, 6]
-        ])).toBe(28)
+    describe("Brelan", () => {
+        it("Should return 28", () => {
+            expect(analyzeDiceRolls([
+                [4, 4, 4, 5, 6]
+            ])).toBe(28)
+        })
+    })
+
+    describe("Carré", () => {
+        it("Should return 35", () => {
+            expect(analyzeDiceRolls([
+                [2, 5, 5, 5, 5]
+            ])).toBe(35)
+        })
     })
 })

@@ -1,17 +1,18 @@
 
 export function analyzeDiceRolls(rolls) {
     let response = 0;
-    let isBrelan=false;
     for(let i = 0; i<rolls.length; i++){
         for(let j = 0; j<5; j++){
-            if(countNumberOccurencesInArray(rolls[i], rolls[i][j]) >= 3) {
-                isBrelan = true;
-                break;
+            if(countNumberOccurencesInArray(rolls[i], rolls[i][j]) === 3) {
+                return 28;
+            }
+            if(countNumberOccurencesInArray(rolls[i], rolls[i][j]) === 4) {
+                return 35;
             }
             response+=rolls[i][j];
         }
     }
-    return isBrelan ? 28 : response;
+    return response;
 }
 
 function countNumberOccurencesInArray(array, number){
