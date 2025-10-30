@@ -61,6 +61,15 @@ function calculLuckyRollScore(roll){
     return score;
 }
 
+function isYams(roll){
+    for(let i = 0; i < roll.length; i++){
+        if(countNumberOccurencesInArray(roll, roll[i]) === 5){
+            return true;
+        }
+    }
+    return false;
+}
+
 export function analyzeDiceRolls(rolls) {
     for(let i = 0; i<rolls.length; i++){
         if(isGrandeSuite(rolls[i])){
@@ -74,6 +83,9 @@ export function analyzeDiceRolls(rolls) {
         }
         if(isCarre(rolls[i])){
             return 35;
+        }
+        if(isYams(rolls[i])){
+            return 50;
         }
         return calculLuckyRollScore(rolls[i]);
     }

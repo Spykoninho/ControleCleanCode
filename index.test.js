@@ -47,4 +47,12 @@ describe("One roll", ()=>{
             ])).toBe(40)
         })
     })
+
+    describe("YAMS", ()=>{
+        it("Should return 50", ()=>{
+            expect(analyzeDiceRolls([
+                [1, 1, 1, 1, 1]
+            ])).toBe(50)
+        })
+    })
 })
