@@ -4,6 +4,12 @@ const FULL_SCORE = 30;
 const GRANDE_SUITE_SCORE = 40;
 const YAMS_SCORE = 50;
 
+const YAMS_NUMBER_OF_DICE = 5;
+const CARRE_NUMBER_OF_DICE = 4;
+const BRELAN_NUMBER_OF_DICE = 3;
+const PAIR_NUMBER_OF_DICE = 2;
+
+
 function countNumberOccurencesInArray(array, number){
     let count = 0;
     for(let i = 0; i < array.length; i++){
@@ -27,7 +33,7 @@ function isGrandeSuite(roll){
 
 function hasBrelan(roll){
     for(let i = 0; i < roll.length; i++){
-        if(countNumberOccurencesInArray(roll, roll[i]) === 3){
+        if(countNumberOccurencesInArray(roll, roll[i]) === BRELAN_NUMBER_OF_DICE){
             return true;
         }
     }
@@ -36,7 +42,7 @@ function hasBrelan(roll){
 
 function hasPair(roll){
     for(let i = 0; i < roll.length; i++){
-        if(countNumberOccurencesInArray(roll, roll[i]) === 2){
+        if(countNumberOccurencesInArray(roll, roll[i]) === PAIR_NUMBER_OF_DICE){
             return true;
         }
     }
@@ -52,7 +58,7 @@ function isFull(roll){
 
 function isCarre(roll){
     for(let i = 0; i < roll.length; i++){
-        if(countNumberOccurencesInArray(roll, roll[i]) === 4){
+        if(countNumberOccurencesInArray(roll, roll[i]) === CARRE_NUMBER_OF_DICE){
             return true;
         }
     }
@@ -69,7 +75,7 @@ function calculLuckyRollScore(roll){
 
 function isYams(roll){
     for(let i = 0; i < roll.length; i++){
-        if(countNumberOccurencesInArray(roll, roll[i]) === 5){
+        if(countNumberOccurencesInArray(roll, roll[i]) === YAMS_NUMBER_OF_DICE){
             return true;
         }
     }
