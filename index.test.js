@@ -14,3 +14,11 @@ describe("Lucky roll", ()=>{
         ])).toBe(17)
     })
 })
+
+describe("Brelan", () => {
+    it("Should return 28", () => {
+        expect(analyzeDiceRolls([
+            [4, 4, 4, 5, 6]
+        ])).toBe(28)
+    })
+})
