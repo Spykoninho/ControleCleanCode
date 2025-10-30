@@ -31,4 +31,12 @@ describe("One roll", ()=>{
             ])).toBe(35)
         })
     })
+
+    describe("Full", () => {
+        it("Should return 30", () => {
+            expect(analyzeDiceRolls([
+                [3, 3, 3, 6, 6]
+            ])).toBe(30)
+        })
+    })
 })
