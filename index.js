@@ -77,22 +77,21 @@ function isYams(roll){
 }
 
 export function analyzeDiceRolls(rolls) {
+    let totalScore = 0;
     for(let i = 0; i<rolls.length; i++){
         if(isGrandeSuite(rolls[i])){
-            return GRANDE_SUITE_SCORE;
+            totalScore += GRANDE_SUITE_SCORE;
+        }else if(isFull(rolls[i])){
+            totalScore += FULL_SCORE;
+        }else if(hasBrelan(rolls[i])){
+            totalScore += BRELAN_SCORE;
+        }else if(isCarre(rolls[i])){
+            totalScore += CARRE_SCORE;
+        }else if(isYams(rolls[i])){
+            totalScore += YAMS_SCORE;
+        }else{
+            totalScore += calculLuckyRollScore(rolls[i]);
         }
-        if(isFull(rolls[i])){
-            return FULL_SCORE;
-        }
-        if(hasBrelan(rolls[i])){
-            return BRELAN_SCORE;
-        }
-        if(isCarre(rolls[i])){
-            return CARRE_SCORE;
-        }
-        if(isYams(rolls[i])){
-            return YAMS_SCORE;
-        }
-        return calculLuckyRollScore(rolls[i]);
     }
+    return totalScore;
 }

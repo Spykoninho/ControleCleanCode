@@ -56,3 +56,12 @@ describe("One roll", ()=>{
         })
     })
 })
+
+describe("Multiple rolls", ()=>{
+    it("Should return Brelan + Full", ()=>{
+        expect(analyzeDiceRolls([
+            [1, 1, 1, 4, 6],
+            [3, 3, 3, 6, 6]
+        ])).toBe(28+30)
+    })
+})
