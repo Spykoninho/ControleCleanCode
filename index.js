@@ -1,3 +1,9 @@
+const BRELAN_SCORE = 28;
+const CARRE_SCORE = 35;
+const FULL_SCORE = 30;
+const GRANDE_SUITE_SCORE = 40;
+const YAMS_SCORE = 50;
+
 function countNumberOccurencesInArray(array, number){
     let count = 0;
     for(let i = 0; i < array.length; i++){
@@ -73,19 +79,19 @@ function isYams(roll){
 export function analyzeDiceRolls(rolls) {
     for(let i = 0; i<rolls.length; i++){
         if(isGrandeSuite(rolls[i])){
-            return 40;
+            return GRANDE_SUITE_SCORE;
         }
         if(isFull(rolls[i])){
-            return 30;
+            return FULL_SCORE;
         }
         if(hasBrelan(rolls[i])){
-            return 28;
+            return BRELAN_SCORE;
         }
         if(isCarre(rolls[i])){
-            return 35;
+            return CARRE_SCORE;
         }
         if(isYams(rolls[i])){
-            return 50;
+            return YAMS_SCORE;
         }
         return calculLuckyRollScore(rolls[i]);
     }
