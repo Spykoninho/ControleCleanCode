@@ -143,3 +143,13 @@ describe("Unit tests", ()=>{
         expect(isYams([5, 5, 5, 5, 5])).toBe(true);
     })
 })
+
+describe("Bonus", ()=>{
+    it("Should not count multiple same combinations", ()=>{
+        expect(analyzeDiceRolls([
+            [1, 1, 1, 2, 2],
+            [1, 1, 1, 2, 2],
+            [1, 1, 1, 2, 2],
+        ])).toBe(30 + 28 + 7) // Grande suite + Full + Carre + YAMS
+    })
+})

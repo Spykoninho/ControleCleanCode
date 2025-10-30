@@ -83,18 +83,29 @@ export function isYams(roll){
 }
 
 export function analyzeDiceRolls(rolls) {
+    let isFullVar = false;
+    let isCarreVar = false;
+    let isGrandeSuiteVar = false;
+    let isBrelanVar = false;
+    let isYamsVar = false;
+
     let totalScore = 0;
     for(let i = 0; i<rolls.length; i++){
-        if(isGrandeSuite(rolls[i])){
+        if(isGrandeSuite(rolls[i]) && !isGrandeSuiteVar){
             totalScore += GRANDE_SUITE_SCORE;
-        }else if(isFull(rolls[i])){
+            isGrandeSuiteVar = true;
+        }else if(isFull(rolls[i]) && !isFullVar){
             totalScore += FULL_SCORE;
-        }else if(hasBrelan(rolls[i])){
+            isFullVar = true;
+        }else if(hasBrelan(rolls[i]) && !isBrelanVar){
             totalScore += BRELAN_SCORE;
-        }else if(isCarre(rolls[i])){
+            isBrelanVar = true;
+        }else if(isCarre(rolls[i]) && !isCarreVar){
             totalScore += CARRE_SCORE;
-        }else if(isYams(rolls[i])){
+            isCarreVar = true;
+        }else if(isYams(rolls[i]) && !isYamsVar){
             totalScore += YAMS_SCORE;
+            isYamsVar = true;
         }else{
             totalScore += calculLuckyRollScore(rolls[i]);
         }
