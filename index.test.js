@@ -39,4 +39,12 @@ describe("One roll", ()=>{
             ])).toBe(30)
         })
     })
+
+    describe("Grande suite", ()=>{
+        it("Should return 40", ()=>{
+            expect(analyzeDiceRolls([
+                [2, 3, 4, 5, 6]
+            ])).toBe(40)
+        })
+    })
 })
