@@ -10,7 +10,7 @@ const BRELAN_NUMBER_OF_DICE = 3;
 const PAIR_NUMBER_OF_DICE = 2;
 
 
-function countNumberOccurencesInArray(array, number){
+export function countNumberOccurencesInArray(array, number){
     let count = 0;
     for(let i = 0; i < array.length; i++){
         if(array[i] === number){
@@ -20,7 +20,7 @@ function countNumberOccurencesInArray(array, number){
     return count;
 }
 
-function isGrandeSuite(roll){
+export function isGrandeSuite(roll){
     const sortedRoll = roll.sort();
     for(let i = 0; i < sortedRoll.length-1; i++){
         let nextValue = sortedRoll[i+1];
@@ -31,7 +31,7 @@ function isGrandeSuite(roll){
     return true;
 }
 
-function hasBrelan(roll){
+export function hasBrelan(roll){
     for(let i = 0; i < roll.length; i++){
         if(countNumberOccurencesInArray(roll, roll[i]) === BRELAN_NUMBER_OF_DICE){
             return true;
@@ -40,7 +40,7 @@ function hasBrelan(roll){
     return false;
 }
 
-function hasPair(roll){
+export function hasPair(roll){
     for(let i = 0; i < roll.length; i++){
         if(countNumberOccurencesInArray(roll, roll[i]) === PAIR_NUMBER_OF_DICE){
             return true;
@@ -49,14 +49,14 @@ function hasPair(roll){
     return false;
 }
 
-function isFull(roll){
+export function isFull(roll){
     let hasBrelanVariable = hasBrelan(roll);
     let hasPairVariable = hasPair(roll);
     
     return hasBrelanVariable && hasPairVariable;
 }
 
-function isCarre(roll){
+export function isCarre(roll){
     for(let i = 0; i < roll.length; i++){
         if(countNumberOccurencesInArray(roll, roll[i]) === CARRE_NUMBER_OF_DICE){
             return true;
@@ -65,7 +65,7 @@ function isCarre(roll){
     return false;
 }
 
-function calculLuckyRollScore(roll){
+export function calculLuckyRollScore(roll){
     let score = 0;
     for(let i = 0; i < roll.length; i++){
         score += roll[i];
@@ -73,7 +73,7 @@ function calculLuckyRollScore(roll){
     return score;
 }
 
-function isYams(roll){
+export function isYams(roll){
     for(let i = 0; i < roll.length; i++){
         if(countNumberOccurencesInArray(roll, roll[i]) === YAMS_NUMBER_OF_DICE){
             return true;
