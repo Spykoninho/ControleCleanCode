@@ -64,4 +64,36 @@ describe("Multiple rolls", ()=>{
             [3, 3, 3, 6, 6]
         ])).toBe(28+30)
     })
+
+    it("Should return Lucky roll + Grande suite + YAMS", ()=>{
+        expect(analyzeDiceRolls([
+            [1, 2, 3, 5, 6],
+            [2, 3, 4, 5, 6],
+            [4, 4, 4, 4, 4]
+        ])).toBe(17+40+50)
+    })
+
+    it("Should return 3 YAMS", ()=>{
+        expect(analyzeDiceRolls([
+            [6, 6, 6, 6, 6],
+            [2, 2, 2, 2, 2],
+            [4, 4, 4, 4, 4]
+        ])).toBe(50*3)
+    })
+
+    it("Should return multiple lucky rolls", ()=>{
+        expect(analyzeDiceRolls([
+            [1, 4, 4, 5, 6],
+            [1, 2, 3, 5, 6],
+            [2, 3, 4, 1, 6]
+        ])).toBe(20 + 17 + 16)
+    })
+
+    it("Should return Carré * 2 + Brelan", ()=>{
+        expect(analyzeDiceRolls([
+            [3, 3, 3, 3, 5],
+            [2, 2, 2, 2, 6],
+            [4, 4, 4, 1, 5]
+        ])).toBe(35*2 + 28)
+    })
 })
